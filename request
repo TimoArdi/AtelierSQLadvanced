@@ -1,0 +1,35 @@
+PREMIERE REQUETE : 
+SELECT firstname, lastname, age FROM kaamelott.Person;
+
+DEUXIEME REQUETE:
+SELECT p.firstname, p.lastname, k.name 
+FROM Person p
+JOIN Kingdom k ON k.id=p.kingdom_id;
+
+TROISEME REQUETE :
+SELECT p.firstname, p.lastname, k.name 
+FROM Person p
+LEFT JOIN Kingdom k ON k.id=p.kingdom_id;
+
+QUATRIEME REQUETE :
+SELECT AVG(age)
+FROM Person 
+
+CINQUIEME REQUETE :
+SELECT k.name, COUNT(*) as nb_person
+FROM Person p
+RIGHT JOIN Kingdom k ON k.id=p.kingdom_id
+GROUP BY k.id;
+
+SIXIEME REQUETE: 
+SELECT r.role, AVG(p.age) as moyenneAge
+FROM Person p
+JOIN Role r ON r.id=p.role_id
+GROUP BY role_id;
+
+SEPTIEME REQUETE :
+SELECT r.role, AVG(p.age) as moyenneAge
+FROM Person p
+JOIN Role r ON r.id=p.role_id
+WHERE r.id=1 OR r.id=2
+GROUP BY role_id;
